@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+nav {
+    background: #005e48;
+    width: 100%;
+
+}
+
+nav ul li {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 50px;
+    margin: 0 5px;
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+
+img {
+    height: 50px;
+    width: 115px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+nav ul li a
+{
+    color : white;
+    font-size: 16px;
+    padding: 7px 12px;
+    text-transform: uppercase;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+a.active, a:hover
+{
+    background: #54a87c;
+    transition: .7s; 
+}
+label.logo
+{
+    color:white;
+    font-size: 35px;
+    line-height: 65px;
+    font-weight: bold;
+    padding: 0 100px;
+}
+.checkbtn
+{
+    font-size: 30px;
+    color: white;
+    float: left;
+    line-height: 80px;
+    margin-left: 40px;
+    cursor: pointer;
+    display: none; 
+}
+#check
+{
+    display: none;
+}
