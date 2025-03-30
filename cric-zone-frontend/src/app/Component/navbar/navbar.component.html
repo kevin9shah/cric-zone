@@ -17,13 +17,23 @@
 
         <img src="https://static.cricbuzz.com/images/cb_logo.svg" alt="image-not-found">
         <ul>
-            <li><a href="">Live Score </a></li>
-            <li><a href="">Matches </a></li>
-            <li><a href="">Points Table </a></li>
-            <li><a href="">Ranking </a></li>
-            <li><a href="">Players </a></li>
-            <li><a href="">Login </a></li>
-            <li><a href="">LogOut  </a></li>
+            <li><a href=""  routerLink="/" routerLinkActive="router-link-active"  routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Live Score </a></li>
+            <li><a href="" routerLink="matches" routerLinkActive="active">Matches </a></li>
+            <li><a href="" routerLink="pointtable" routerLinkActive="active">Points Table </a></li>
+            <li><a href="" routerLink="ranking" routerLinkActive="active">Ranking </a></li>
+            <li><a href="" routerLink="players" routerLinkActive="active">Players </a></li>
+            <li>
+                <button class="btn btn-danger p-1 mb-2 Logout" *ngIf="!isLoggedIn()" routerLink="/login">
+                    Login
+                </button>
+            </li>
+    
+            <li>
+                <button class="btn btn-danger p-1 mb-2 Logout" *ngIf="isLoggedIn()" routerLink="/logout">
+                    LogOut
+                </button>
+            </li>
+            
         </ul>
     </nav>
 </body>
