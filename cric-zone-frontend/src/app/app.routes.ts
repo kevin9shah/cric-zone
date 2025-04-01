@@ -8,11 +8,11 @@ import { LoginComponent } from './Component/login/login.component';
 import { SignupComponent } from './Component/signup/signup.component';
 
 export const routes: Routes = [
-    {path:'',component:LiveScoreComponent},
-    {path:'matches',component:MatchesComponent},
-    {path:'pointtable',component:PointTableComponent},
-    {path:'ranking',component:RankingComponent},
-    {path:'players',component:PlayersComponent},
-    {path:'login',component:LoginComponent},
-    {path:'signup',component:SignupComponent}
+  { path: '', component: LiveScoreComponent },
+  { path: 'matches', component: MatchesComponent },
+  { path: 'pointtable', component: PointTableComponent },  { path: 'ranking', component: RankingComponent },
+  { path: 'players', component: PlayersComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: '**', redirectTo: '' }
 ];

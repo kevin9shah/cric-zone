@@ -24,6 +24,6 @@ export class ApiServiceService {
     if (typeof window !== 'undefined') {
       return localStorage.getItem(this.loggedInKey) === 'true';
     }
-    return true;
+    return false;
   }
 }

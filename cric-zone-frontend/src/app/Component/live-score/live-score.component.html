@@ -6,6 +6,45 @@
     <title>Document</title>
 </head>
 <body>
-    live score
+    <div class="container mt-4">
+        <h2 class="mb-4">Live Matches</h2>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4" *ngFor="let match of matches">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>{{match.matchType}}</span>
+                            <span class="badge bg-warning text-dark">{{match.status}}</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="match-details mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="team">
+                                    <h5 class="mb-0">{{match.teams.team1}}</h5>
+                                    <div class="score">
+                                        {{match.score.team1.runs}}/{{match.score.team1.wickets}}
+                                        <small class="text-muted">({{match.score.team1.overs}} ov)</small>
+                                    </div>
+                                </div>
+                                <div class="vs">VS</div>
+                                <div class="team text-end">
+                                    <h5 class="mb-0">{{match.teams.team2}}</h5>
+                                    <div class="score">
+                                        {{match.score.team2.runs}}/{{match.score.team2.wickets}}
+                                        <small class="text-muted">({{match.score.team2.overs}} ov)</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="venue text-muted">
+                                <i class="fas fa-map-marker-alt"></i> {{match.venue}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

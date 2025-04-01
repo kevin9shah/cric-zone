@@ -1,16 +1,28 @@
-import { TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
 
-import { ApiServiceService } from './api-service.service';
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiServiceService {
+  private isAuthenticated = false; // Tracks login state
 
-describe('ApiServiceService', () => {
-  let service: ApiServiceService;
+  constructor() {
+    // Check if user was previously logged in
+    const savedAuthState = localStorage.getItem('isAuthenticated');
+    this.isAuthenticated = savedAuthState === 'true';
+  }
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ApiServiceService);
-  });
+  isLoggedIn(): boolean {
+    return this.isAuthenticated;
+  }
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  login(): void {
+    this.isAuthenticated = true;
+    localStorage.setItem('isAuthenticated', 'true'); // Save state
+  }
+
+  logout(): void {
+    this.isAuthenticated = false;
+    localStorage.removeItem('isAuthenticated'); // Clear state
+  }
+}

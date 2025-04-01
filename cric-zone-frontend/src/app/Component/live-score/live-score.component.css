@@ -1,0 +1,51 @@
+.card {
+    border: none;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    border-bottom: none;
+    padding: 1rem;
+}
+
+.vs {
+    font-weight: bold;
+    color: #666;
+    padding: 0 1rem;
+}
+
+.team h5 {
+    color: #333;
+    font-weight: 600;
+}
+
+.score {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #444;
+}
+
+.venue {
+    font-size: 0.9rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid #eee;
+}
+
+.badge {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .vs {
+        padding: 0 0.5rem;
+    }
+    
+    .score {
+        font-size: 1rem;
+    }
+}
