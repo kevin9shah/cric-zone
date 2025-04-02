@@ -1,1 +1,106 @@
-<p>signup works!</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h2 class="text-center mb-4">Create Account</h2>
+          <p class="text-center text-muted mb-4">Join our cricket community today!</p>
+
+          <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <!-- Full Name -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="name" 
+                formControlName="name"
+                [class.is-invalid]="submitted && f['name'].errors"
+                placeholder="Enter your full name">
+              <div class="invalid-feedback" *ngIf="submitted && f['name'].errors">
+                <div *ngIf="f['name'].errors['required']">Name is required</div>
+                <div *ngIf="f['name'].errors['minlength']">Name must be at least 3 characters</div>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email Address</label>
+              <input 
+                type="email" 
+                class="form-control" 
+                id="email" 
+                formControlName="email"
+                [class.is-invalid]="submitted && f['email'].errors"
+                placeholder="Enter your email">
+              <div class="invalid-feedback" *ngIf="submitted && f['email'].errors">
+                <div *ngIf="f['email'].errors['required']">Email is required</div>
+                <div *ngIf="f['email'].errors['email']">Please enter a valid email address</div>
+                <div *ngIf="f['email'].errors['pattern']">Please enter a valid email format</div>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input 
+                type="password" 
+                class="form-control" 
+                id="password" 
+                formControlName="password"
+                [class.is-invalid]="submitted && f['password'].errors"
+                placeholder="Create a password">
+              <div class="invalid-feedback" *ngIf="submitted && f['password'].errors">
+                {{ passwordError }}
+              </div>
+              <div class="form-text">
+                Password must contain at least 8 characters, including uppercase, lowercase, numbers, and special characters.
+              </div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input 
+                type="password" 
+                class="form-control" 
+                id="confirmPassword" 
+                formControlName="confirmPassword"
+                [class.is-invalid]="submitted && (f['confirmPassword'].errors || signupForm.errors?.['mismatch'])"
+                placeholder="Confirm your password">
+              <div class="invalid-feedback" *ngIf="submitted && (f['confirmPassword'].errors || signupForm.errors?.['mismatch'])">
+                {{ confirmPasswordError }}
+              </div>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="mb-4">
+              <div class="form-check">
+                <input 
+                  class="form-check-input" 
+                  type="checkbox" 
+                  id="terms" 
+                  formControlName="terms"
+                  [class.is-invalid]="submitted && f['terms'].errors">
+                <label class="form-check-label" for="terms">
+                  I agree to the <a href="#" class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Privacy Policy</a>
+                </label>
+                <div class="invalid-feedback" *ngIf="submitted && f['terms'].errors">
+                  You must agree to the terms and conditions
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100 mb-3">Create Account</button>
+
+            <!-- Login Link -->
+            <p class="text-center mb-0">
+              Already have an account? <a routerLink="/login" class="text-primary">Login here</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

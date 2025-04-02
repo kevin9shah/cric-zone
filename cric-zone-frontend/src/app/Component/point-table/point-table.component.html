@@ -1,10 +1,10 @@
 <div class="points-table-container">
-  <h1>Points Tables</h1>
+  <h1 class="text-center mb-4">Points Tables</h1>
 
   <div *ngFor="let league of leagues" class="league-section">
     <h2 class="league-title">{{ league.name }}</h2>
     <div class="table-container">
-      <table class="points-table">
+      <table class="table points-table">
         <thead>
           <tr>
             <th>Pos</th>
@@ -38,21 +38,23 @@
   </div>
 
   <div class="legend">
-    <div class="legend-item">
-      <div class="color-box top-4"></div>
-      <span>Qualification Zone</span>
-    </div>
-    <div class="legend-item">
-      <div class="color-box bottom-4"></div>
-      <span>Relegation Zone</span>
-    </div>
-    <div class="legend-item">
-      <div class="color-box positive"></div>
-      <span>Positive NRR</span>
-    </div>
-    <div class="legend-item">
-      <div class="color-box negative"></div>
-      <span>Negative NRR</span>
+    <div class="d-flex flex-wrap justify-content-center gap-4">
+      <div class="legend-item d-flex align-items-center">
+        <div class="color-box top-4 me-2"></div>
+        <span>Qualification Zone</span>
+      </div>
+      <div class="legend-item d-flex align-items-center">
+        <div class="color-box bottom-4 me-2"></div>
+        <span>Relegation Zone</span>
+      </div>
+      <div class="legend-item d-flex align-items-center">
+        <div class="color-box positive me-2"></div>
+        <span>Positive NRR</span>
+      </div>
+      <div class="legend-item d-flex align-items-center">
+        <div class="color-box negative me-2"></div>
+        <span>Negative NRR</span>
+      </div>
     </div>
   </div>
 </div>

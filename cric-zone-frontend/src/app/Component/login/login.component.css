@@ -1,7 +1,4 @@
 .login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 20px;
@@ -17,16 +14,13 @@
 }
 
 h1 {
-  margin: 0;
   color: #2d3748;
   font-size: 24px;
   font-weight: 600;
-  text-align: center;
 }
 
 .subtitle {
   color: #718096;
-  text-align: center;
   margin: 10px 0 30px;
   font-size: 14px;
 }
@@ -43,33 +37,22 @@ h1 {
   gap: 8px;
 }
 
-label {
-  color: #4a5568;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-input {
-  padding: 12px;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: all 0.2s;
-}
-
-input:focus {
-  outline: none;
+.form-control:focus {
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-input.error {
+.form-control.error {
   border-color: #e53e3e;
 }
 
 .error-message {
   color: #e53e3e;
   font-size: 12px;
+}
+
+.form-check-label {
+  color: #4a5568;
 }
 
 .form-options {
@@ -96,7 +79,7 @@ input.error {
   text-decoration: underline;
 }
 
-.login-button {
+.btn-login {
   background: #667eea;
   color: white;
   padding: 12px;
@@ -104,21 +87,19 @@ input.error {
   border-radius: 6px;
   font-size: 16px;
   font-weight: 500;
-  cursor: pointer;
   transition: all 0.2s;
 }
 
-.login-button:hover {
+.btn-login:hover {
   background: #5a67d8;
 }
 
-.login-button:disabled {
+.btn-login:disabled {
   background: #a0aec0;
   cursor: not-allowed;
 }
 
 .register-link {
-  text-align: center;
   color: #4a5568;
   font-size: 14px;
 }

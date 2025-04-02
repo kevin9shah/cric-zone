@@ -1,49 +1,63 @@
 <div class="ranking-container">
-  <h1>ICC Rankings</h1>
+  <h1 class="text-center mb-4">ICC Rankings</h1>
 
-  <div class="format-buttons">
+  <div class="format-buttons d-flex justify-content-center gap-3">
     <button 
       *ngFor="let format of formats" 
       [class.active]="selectedFormat === format.name"
       (click)="selectedFormat = format.name; onFormatChange()"
-      class="format-button">
+      class="btn format-button">
       {{ format.name }}
     </button>
   </div>
 
-  <div class="players-grid" *ngIf="currentFormat">
-    <div class="player-card" *ngFor="let player of currentFormat.players">
-      <div class="player-image">
-        <img [src]="player.image" [alt]="player.name">
-        <div class="position-badge">{{ player.position }}</div>
-      </div>
-      <div class="player-info">
-        <h3 class="player-name">{{ player.name }}</h3>
-        <p class="player-country">{{ player.country }}</p>
-        <div class="player-stats">
-          <div class="stat-item">
-            <span class="stat-label">Rating</span>
-            <span class="stat-value">{{ player.rating }}</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-label">Matches</span>
-            <span class="stat-value">{{ player.matches }}</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-label">Runs</span>
-            <span class="stat-value">{{ player.runs }}</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-label">Wickets</span>
-            <span class="stat-value">{{ player.wickets }}</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-label">Average</span>
-            <span class="stat-value">{{ player.average }}</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-label">SR</span>
-            <span class="stat-value">{{ player.strikeRate }}</span>
+  <div class="row g-4" *ngIf="currentFormat">
+    <div class="col-md-4" *ngFor="let player of currentFormat.players">
+      <div class="card player-card h-100">
+        <div class="player-image">
+          <img [src]="player.image" [alt]="player.name" class="card-img-top">
+          <div class="position-badge">{{ player.position }}</div>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title player-name">{{ player.name }}</h3>
+          <p class="card-text player-country">{{ player.country }}</p>
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="stat-item p-2">
+                <span class="stat-label d-block">Rating</span>
+                <span class="stat-value">{{ player.rating }}</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="stat-item p-2">
+                <span class="stat-label d-block">Matches</span>
+                <span class="stat-value">{{ player.matches }}</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="stat-item p-2">
+                <span class="stat-label d-block">Runs</span>
+                <span class="stat-value">{{ player.runs }}</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="stat-item p-2">
+                <span class="stat-label d-block">Wickets</span>
+                <span class="stat-value">{{ player.wickets }}</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="stat-item p-2">
+                <span class="stat-label d-block">Average</span>
+                <span class="stat-value">{{ player.average }}</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="stat-item p-2">
+                <span class="stat-label d-block">SR</span>
+                <span class="stat-value">{{ player.strikeRate }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

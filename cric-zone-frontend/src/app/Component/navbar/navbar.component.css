@@ -7,121 +7,175 @@
 }
 
 nav {
-    background: #005e48;
+    background: linear-gradient(135deg, #005e48 0%, #00875a 100%);
     width: 100%;
-
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
 }
 
-nav ul li {
-    cursor: pointer;
-    display: inline-block;
-    line-height: 50px;
-    margin: 0 5px;
-}
-
-nav ul {
-    float: right;
-    margin-right: 20px;
-}
-
-img {
+.navbar-brand img {
     height: 50px;
     width: 115px;
     margin-left: 20px;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
-nav ul li a
-{
-    color : white;
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
+}
+
+/* Navigation Links */
+.nav-links {
+    gap: 0.5rem;
+}
+
+.nav-link {
+    color: white !important;
     font-size: 16px;
-    padding: 7px 12px;
+    padding: 10px 20px;
     text-transform: uppercase;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-a.active, a:hover
-{
-    background: #54a87c;
-    transition: .7s; 
-}
-label.logo
-{
-    color:white;
-    font-size: 35px;
-    line-height: 65px;
-    font-weight: bold;
-    padding: 0 100px;
-}
-.checkbtn
-{
-    font-size: 30px;
-    color: white;
-    float: left;
-    line-height: 80px;
-    margin-left: 40px;
-    cursor: pointer;
-    display: none; 
-}
-#check
-{
-    display: none;
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
 }
 
-.Logout
-{
-    width: 90px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 7px 13px;
-    color: white;
+.nav-link i {
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: white;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 80%;
+}
+
+.nav-link:hover, .nav-link.active {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-link.active::after {
+    width: 80%;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 1rem;
+}
+
+.btn-login, .btn-logout {
+    padding: 10px 20px;
     font-size: 16px;
-    
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 100px;
+    justify-content: center;
 }
-/* @media (max-width:952px)
-{
-    lable.logo
-    {
-        font-size: 30px;
-        padding-left: 50px;
 
-    }
-    nav ul li a 
-    {
-        font-size: 16px;
+.btn-login {
+    background: #dc3545;
+    border: 1px solid #dc3545;
+    color: white;
+}
 
-    }
-} */
+.btn-login:hover {
+    background: #c82333;
+    border-color: #bd2130;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+}
 
-@media (max-width:856px) {
-    .checkbtn
-    {
-        display: block;
+.btn-logout {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.btn-logout:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Toggle Button */
+.navbar-toggler {
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    transform: scale(1.1);
+}
+
+/* Mobile Menu */
+@media (max-width: 856px) {
+    .navbar-collapse {
+        background: rgba(44, 62, 80, 0.95);
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 10px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
-    ul
-    {
-        position: fixed;
-        z-index: 1;
+    
+    .nav-links {
+        flex-direction: column;
         width: 100%;
-        height: 100vh;
-        background: #2c3e50;
-        text-align: center;
-        transition: all .5s;
     }
-    nav ul li{
-        display: block;
-        margin: 50px 0;
-        line-height: 30px;
+    
+    .nav-link {
+        padding: 15px 20px;
+        font-size: 18px;
+        margin: 5px 0;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        width: 100%;
+        justify-content: flex-start;
     }
-    nav ul li a {
-        font-size: 20px;
-
+    
+    .nav-link:hover, .nav-link.active {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateX(10px);
     }
-    #check:checked ~ ul
-    {
-        left: 0;
+    
+    .nav-link::after {
+        display: none;
     }
-    a:hover,a.active
-    {
-        background: none;
-        color: #0082e6;
-
+    
+    .auth-buttons {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+    
+    .btn-login, .btn-logout {
+        width: 100%;
+        justify-content: center;
     }
 }

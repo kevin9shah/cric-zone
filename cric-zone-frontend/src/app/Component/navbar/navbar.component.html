@@ -9,32 +9,61 @@
 
 <body>
 
-    <nav class="navbar">
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-            <i class="fas fa-bars"></i>
-        </label>
-
-        <img src="https://static.cricbuzz.com/images/cb_logo.svg" alt="image-not-found">
-        <ul>
-            <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Live Score</a></li>
-            <li><a routerLink="matches" routerLinkActive="active">Matches</a></li>
-            <li><a routerLink="pointtable" routerLinkActive="active">Points Table</a></li>
-            <li><a routerLink="ranking" routerLinkActive="active">Ranking</a></li>
-            <li><a routerLink="players" routerLinkActive="active">Players</a></li>
-            <li>
-                <button class="btn btn-danger p-1 mb-2 Logout" *ngIf="!isLoggedIn()" (click)="login()">
-                    Login
-                </button>
-            </li>
-    
-            <li>
-                <button class="btn btn-danger p-1 mb-2 Logout" *ngIf="isLoggedIn()" (click)="logout()">
-                    LogOut
-                </button>
-            </li>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://static.cricbuzz.com/images/cb_logo.svg" alt="CricZone Logo">
+            </a>
             
-        </ul>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <div class="nav-links d-flex align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                                <i class="fas fa-broadcast-tower me-1"></i>Live Score
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="matches" routerLinkActive="active">
+                                <i class="fas fa-gamepad me-1"></i>Matches
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="pointtable" routerLinkActive="active">
+                                <i class="fas fa-table me-1"></i>Points Table
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="ranking" routerLinkActive="active">
+                                <i class="fas fa-trophy me-1"></i>Ranking
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="players" routerLinkActive="active">
+                                <i class="fas fa-users me-1"></i>Players
+                            </a>
+                        </li>
+                    </div>
+
+                    <div class="auth-buttons ms-3">
+                        <li class="nav-item" *ngIf="!isLoggedIn()">
+                            <button class="btn btn-login" (click)="login()">
+                                <i class="fas fa-sign-in-alt me-1"></i>Login
+                            </button>
+                        </li>
+                        <li class="nav-item" *ngIf="isLoggedIn()">
+                            <button class="btn btn-logout" (click)="logout()">
+                                <i class="fas fa-sign-out-alt me-1"></i>Logout
+                            </button>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
     </nav>
 </body>
 
